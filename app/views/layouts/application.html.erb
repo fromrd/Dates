@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html class="noIE" lang="ja">
+  <head>
+    <title>Dates｜旅先でのデートスポット</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  		<!-- meta -->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+		<meta name="viewport" content="width=device-width, initial-scale = 1.0, maximum-scale=1.0, user-scalable=no"/>
+		
+		<!-- google fonts -->
+		<link href='http://fonts.googleapis.com/css?family=Raleway:500,300' rel='stylesheet' type='text/css'>
+		<link rel='stylesheet' href='http://fonts.googleapis.com/css?family=PT+Sans'>
+		<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Droid+Serif:regular,bold"/>
+		
+		<!-- css -->
+		<link rel="stylesheet" href="assets/css/bootstrap.min.css">
+		<link rel="stylesheet" href="assets/css/font-awesome.min.css">
+		<link rel="stylesheet" href="assets/css/style.css" media="screen"/>
+
+		<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+		<!--[if lt IE 9]>
+			<script src="assets/js/html5shiv.js"></script>
+			<script src="assets/js/respond.js"></script>
+		<![endif]-->
+
+		<!--[if IE 8]>
+	    	<script src="assets/js/selectivizr.js"></script>
+	    <![endif]-->
+	</head>
+
+  <body>
+    	<header class="top-header">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-3 col-xs-5 col-sm-4 header-logo">
+						<br>
+						<a href="index.html"> 
+							<h1><%= link_to 'Dates', top_plans_path, class: "logo" %>
+							<span><%= link_to 'spot', top_plans_path, class: "logo-head" %></span></h1>
+						</a>
+					</div>
+
+					<div class="col-md-8 col-md-offset-1 col-xs-7">
+						<nav>
+						<!--<nav class="navbar navbar-default">-->
+						  	<div id="header_place" class="container-fluid nav-bar">
+						    <!-- Brand and toggle get grouped for better mobile display -->
+							    <div class="navbar-header">
+							      	<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+								        <span class="sr-only">Toggle navigation</span>
+								        <span class="icon-bar"></span>
+								        <span class="icon-bar"></span>
+								        <span class="icon-bar"></span>
+							      	</button>
+							    </div>
+
+						    	<!-- Collect the nav links, forms, and other content for toggling -->
+							    <div class="collapse navbar-collapse navbar-def" id="bs-example-navbar-collapse-1">
+							      	<ul class="nav navbar-nav navbar-right">
+							      		<% if logged_in? %>
+							        	<li>
+							        		<i class="fa fa-home"><%= link_to 'Home　', top_plans_path %></i>
+											<!--<a href="#wrapper"><i class="fa fa-home"></i> Home</a>-->
+										</li>
+										<li>
+							        		<i class="fa fa-id-card"><%= link_to 'マイページ　', user_path(current_user.id) %></i>
+											<!--<a href="#services"><i class="fa fa-id-card"></i> マイページ</a>-->
+										</li>
+										<li>
+								    		<i class="fa fa-tasks"><%= link_to 'スポット一覧　', plans_path %></i>
+											<!--<a href="#blog"><i class="fa fa-tasks"></i> Plan一覧</a>-->
+										</li>
+										<li>
+								    		<i class="fa fa-tasks"><%= link_to 'ログアウト　', session_path(current_user.id), method: :delete %></i>
+											<!--<a href="#blog"><i class="fa fa-tasks"></i> Plan一覧</a>-->
+										</li>
+										
+										
+										<% else %>
+										<li>
+							        		<i class="fa fa-child"><%= link_to '会員登録　', new_user_path %></i>
+											<!--<a href="#about"><i class="fa fa-child"></i> 会員登録</a>-->
+										</li>
+										<li>
+   										    <i class="fa fa-bookmark"><%= link_to 'ログイン　', new_session_path %></i>
+											<!--<a href="#portfolio"><i class="fa fa-bookmark"></i> ログイン</a>-->
+										</li>
+										<% end %>
+							      	</ul>
+							    </div><!-- /navbar-collapse -->
+						  	</div><!-- / .container-fluid -->
+						</nav>
+					</div>
+				</div>
+			</div>
+		</header>
+
+    <% flash.each do |key, value| %>
+      <% content_tag(:div, value, class: "#{key}") %>
+    <% end %>
+    
+
+    <%= yield %>
+			<div class="content-block footer-bottom" id="footer">
+				<div class="container">
+					<div class="row">
+						<div class="col-xs-6">&copy; 2018 Copyright yukie</div>
+						<div class="col-xs-6 text-right">Theme by <a href="http://www.themewagon.com/" target="_blink">ThemeWagon</a></div>
+					</div>
+				</div>
+			</div><!-- #footer -->
+
+		<!--/#wrapper-->
+
+
+		<script src="assets/js/jquery-2.1.3.min.js"></script>
+		<script src="assets/js/bootstrap.js"></script>
+		<script src="assets/js/jquery.actual.min.js"></script>
+		<script src="assets/js/jquery.scrollTo.min.js"></script>
+		<script src="assets/js/contact.js"></script>
+		<script src="assets/js/script.js"></script>
+		<script src="assets/js/smoothscroll.js"></script>
+		<script type="text/javascript">
+		jQuery(document).ready(function($){
+
+		  	$(window).scroll(function() {
+		  		
+		  		console.log("asdf");
+
+				if ($(window).scrollTop() > 100 ){
+		    
+		 		$('.top-header').addClass('shows');
+		    
+		  		} else {
+		    
+		   	 	$('.top-header').removeClass('shows');
+		    
+		 		};   	
+			});
+
+		  });
+
+		jQuery('.scroll').on('click', function(e){		
+				e.preventDefault()
+		    
+		  jQuery('html, body').animate({
+		      scrollTop : jQuery(this.hash).offset().top
+		    }, 1500);
+		});
+
+
+		</script>
+
+
+	</body>
+</html>

@@ -1,0 +1,24 @@
+<div class="content_wrapper">
+    <h1>タイトル：<%= @plan.title %></h1>
+    <p>内容：<%= @plan.content %></p>
+    <p>Image:</p>
+    <p id="images"><%= image_tag @plan.image %></p>
+    <!--<p><%#= @plan.sample_flag %></p>-->
+    
+    <% unless @plan.user_id == current_user.id %>
+      <% if @favorite.present? %>
+        <%= link_to 'お気に入り解除する', favorite_path(id: @favorite.id), method: :delete, class: 'btn btn-danger' %>
+      <% else %>
+        <%= link_to 'お気に入りする', favorites_path(plan_id: @plan.id), method: :post, class: 'btn btn-primary' %>
+      <% end %>
+    <% end %>
+
+      <h1>レビュー一覧</h1>
+      <% @reviews.each do |review| %>
+  	      <p><%= review.comment %></p>
+  	      <p>By <%= review.user.name %></p>
+  	  <% end %>
+
+
+      <%= link_to 'レビューを書く', controller: 'reviews', action: 'new', plan_id: @plan.id %> 
+</div>

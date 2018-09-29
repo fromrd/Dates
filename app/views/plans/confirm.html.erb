@@ -1,0 +1,25 @@
+<div class="content_wrapper">
+    <h3>以下の内容で、送信する。</h3>
+    
+    <%= form_with(model: @plan, url: plans_path, local: true, method: 'post') do |form| %>
+        <%= form.hidden_field :title %>
+        <%= form.hidden_field :content %>
+        <%= form.hidden_field :image_cache %>
+        <%= form.hidden_field :sample_flag %>
+        
+        <p>タイトル：<%= @plan.title %></p>
+        <p>コメント：</p>
+        <p><%= @plan.content %></p>
+        <img class="plan_image">
+            <%= image_tag(@plan.image) %>
+        </img>
+        <!--<p><%#= @plan.sample_flag %></p>-->
+        <p><%= form.submit "登録する" %></p>
+    <% end %>
+    
+    <%= form_with(model: @plan, url: new_plan_path, local: true, method: 'get') do |form| %>
+        <%= form.hidden_field :content %>
+        <%= form.hidden_field :image_cache %>
+        <%= form.submit "もどる", name: 'back' %>
+    <% end %>
+</div>

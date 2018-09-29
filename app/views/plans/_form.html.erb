@@ -1,0 +1,30 @@
+<%= form_with(model: @plan, local: true ,url: choose_new_or_edit ) do |form| %>
+    <% if @plan.errors.any? %>
+        <div id="error_explanation">
+            <h2><%= @plan.errors.count %>件のエラーがあります。</h2>
+            <ul>
+            <% @plan.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+            <% end %>    
+            </ul>
+        </div>
+    <% end %>
+    
+    <div class="plan_title">
+        <p><%= form.label :title %></p>
+        <p><%= form.text_field :title %></p>
+    </div>
+    <div class="plan_content">
+        <p><%= form.label :content %></p>
+        <p><%= form.text_field :content %></p>
+    </div>
+    <div class="plan_title">
+        <div class="image_box"><%= form.label :image %></div>
+        <%= image_tag(@plan.image.url) if @plan.image.url %>
+        <div class="image_box"><%= form.file_field :image, id: :plan_image %></div>
+    </div>
+    <div class="plan_title">
+      <%= form.select :sample_flag, [["0:会員のみ閲覧できる記事", "0"], ["1:誰でも閲覧できるサンプル記事", "1"]] %>
+    </div>
+    <p><%= form.submit "投稿する" %></p>
+<% end %>
