@@ -1,7 +1,7 @@
 class PlansController < ApplicationController
   before_action :set_plan, only: [:show, :edit, :update, :destroy]
   before_action :current_user, only: [:new, :edit, :show, :destroy, :index]
-  before_action :log_in, only: [:new, :edit, :show, :destroy]
+  before_action :log_in, only: [:new, :edit, :destroy]
   
   def top
     @plans = Plan.where(sample_flag: 1).last(3)
@@ -35,8 +35,10 @@ class PlansController < ApplicationController
   
   def show
     @plan = Plan.find_by(id: @plan.id)
-    @favorite = current_user.favorites.find_by(plan_id: @plan.id)
     @reviews = Review.where(plan_id: @plan.id)
+    if logged_in?
+      @favorite = current_user.favorites.find_by(plan_id: @plan.id)
+    end
   end
   
   def edit

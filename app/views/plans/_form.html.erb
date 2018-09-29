@@ -20,11 +20,11 @@
     </div>
     <div class="plan_title">
         <div class="image_box"><%= form.label :image %></div>
-        <%= image_tag(@plan.image.url) if @plan.image.url %>
+        <div id="images"><%= image_tag(@plan.image.url) if @plan.image.url %></div>
         <div class="image_box"><%= form.file_field :image, id: :plan_image %></div>
     </div>
     <div class="plan_title">
       <%= form.select :sample_flag, [["0:会員のみ閲覧できる記事", "0"], ["1:誰でも閲覧できるサンプル記事", "1"]] %>
-    </div>
+    </div></br>
     <p><%= form.submit "投稿する" %></p>
 <% end %>

@@ -10,10 +10,9 @@
         <p>タイトル：<%= @plan.title %></p>
         <p>コメント：</p>
         <p><%= @plan.content %></p>
-        <img class="plan_image">
+        <img id="images">
             <%= image_tag(@plan.image) %>
-        </img>
-        <!--<p><%#= @plan.sample_flag %></p>-->
+        </img><br>
         <p><%= form.submit "登録する" %></p>
     <% end %>
     
