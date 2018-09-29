@@ -749,3 +749,7 @@ button.navbar-toggle.collapsed {
   max-width: 70%;
   margin: 0 auto 30px auto;
 }
+
+.favorite_choice {
+  padding-bottom: 10px;
+}

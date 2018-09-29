@@ -17,8 +17,10 @@
     <% end %>
     
     <%= form_with(model: @plan, url: new_plan_path, local: true, method: 'get') do |form| %>
+        <%= form.hidden_field :title %>
         <%= form.hidden_field :content %>
         <%= form.hidden_field :image_cache %>
+        <%= form.hidden_field :sample_flag %>
         <%= form.submit "もどる", name: 'back' %>
     <% end %>
 </div>
