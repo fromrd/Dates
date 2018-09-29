@@ -745,3 +745,7 @@ button.navbar-toggle.collapsed {
   padding-top: 20px;
 }
 
+#images {
+  max-width: 70%;
+  margin: 0 auto 30px auto;
+}
