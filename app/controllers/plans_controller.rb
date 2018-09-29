@@ -8,16 +8,10 @@ class PlansController < ApplicationController
   end
   
   def index
-    if @current_user.nil?
-      @plans = Plans.find_by(sample_flag: 0)
-    else
-      @plans = Plan.all
-    end
-  
+    @plans = Plan.all
     @search = Plan.ransack(params[:q])
     @plans = @search.result
     render 'index'
-    
   end
 
   def new
