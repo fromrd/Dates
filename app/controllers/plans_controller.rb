@@ -72,11 +72,11 @@ class PlansController < ApplicationController
     
   private
   
-    def plan_params
-      params.require(:plan).permit(:title, :content, :sample_flag, :image, :image_cache)
-    end
+  def plan_params
+    params.require(:plan).permit(:title, :content, :sample_flag, :image, :image_cache)
+  end
     
-    def set_plan
-      @plan = Plan.find(params[:id])
-    end
+  def set_plan
+    @plan = Plan.find(params[:id])
+  end
 end

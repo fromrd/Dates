@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
+  root to: 'plans#top'
+  
   get 'sessions/new'
 
   get 'sessions/new'
-  
-  root to: 'plans#top'
   
   resources :sessions, only: [:new, :create, :destroy]
 
