@@ -129,13 +129,13 @@
     <script src="assets/js/smoothscroll.js"></script>
     <script type="text/javascript">
   		jQuery(document).ready(function($){
-        $(window).scroll(function() {
+  		  $(window).scroll(function() {
   		    console.log("asdf");
   				if ($(window).scrollTop() > 100 ){
-      			$('.top-header').addClass('shows');
+  				  $('.top-header').addClass('shows');
   		  	} else {
   		   	  $('.top-header').removeClass('shows');
-    		 	};   	
+  		   	};   	
   	  	});
   		});
   
@@ -145,6 +145,6 @@
   		    scrollTop : jQuery(this.hash).offset().top
   		  }, 1500);
   		});
-		</script>
+  	</script>
   </body>
 </html>
