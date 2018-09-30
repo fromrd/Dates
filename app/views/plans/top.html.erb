@@ -2,66 +2,58 @@
 <!--[if IE 8]><html class="ie ie8 lte9 lte8" lang="en-US">	<![endif]-->
 <!--[if IE 9]><html class="ie ie9 lte9" lang="en-US"><![endif]-->
 <!--[if (gt IE 9)|!(IE)]><!-->
-
 <!--<![endif]-->
-	
 <div class="content_top">
-		
-			
-			<div id="header" class="content-block">
-				<!-- <section class="top clearfix">
-					<div class="pull-left">
-						<h1><a class="logo" href="index.html">Nevada <span class="logo-head">Plus</span></a></h1>
-					</div>
-					<! <div class="pull-right">
-						<a class="toggleDrawer" href="#"><i class="fa fa-bars fa-2x"></i></a>
-					</div> 
-				</section>-->
-				<section class="center">
-					<div class="slogan">
-						Dates
-					</div>
-					<div class="secondary-slogan">
-						旅行に行って、ただ観光名所を巡るだけの時代は終わりました。<br>
-						Datesでは、旅先の現地の人がリアルに行くデートスポットを知ることができます。<br>
-						現地の人になりきって、リアルなデートスポットを巡る、新しいスタイルの<br>
-						旅行プランをたててみませんか？<br><br>
-					</div>
-					<%= link_to '会員登録', new_user_path, class: "pull-center btn btn-o-white btn-lg" %>
-				</section>
-			</div><!-- header -->
-
-			<!-- About us -->
-
-			<div class="content-block" id="blog">
-				<div class="container blog-sec">
-					<header class="block-heading cleafix">
-					<%#= link_to '全ての記事を見る', new_user_path, class: "pull-center btn btn-o-white btn-lg" %>
-				    <!--<a href="#" class="btn btn-o btn-lg pull-right">全ての記事を見る</a>-->
-						<div class="title-page">
-							<p class="main-header">サンプル</p>
-						    <p class="sub-header">最新のデートスポット</p>
-						</div>
-					</header>
-					<section class="block-body">
-						<div class="row">
-						  <% @plans.each do |plan| %>
-							<div class="col-sm-4 blog-post">
-							  <img><%= image_tag(plan.image) %></img>
-                              <h2><%= link_to plan.title, plan_path(plan.id) %></h2>
-							  <div class="date"><%= plan.created_at.strftime('%Y/%m/%d') %></div>
-							</div>
-					      <% end %>
-						</div>
-					</section>
-				</div>
-			</div><!-- #blog -->
-
-
-			<div class="content-block parallax" id="parallax">
-				<div class="container">
-					<h3 class="call-action pull-left">会員登録すると全ての記事を閲覧できます。</h3>
-					<%= link_to '会員登録', new_user_path, class: "pull-right btn btn-o-white btn-lg" %>
-				</div>
-			</div><!-- #parallax -->
+  <div id="header" class="content-block">
+    <section class="center">
+      <div class="slogan">Dates </div>
+      <div class="secondary-slogan">旅行に行って、ただ観光名所を巡るだけの時代は終わりました。
+        <br>Datesでは、旅先の現地の人がリアルに行くデートスポットを知ることができます。
+        <br>現地の人になりきって、リアルなデートスポットを巡る、新しいスタイルの
+        <br>旅行プランをたててみませんか？
+        <br>
+        <br>
+      </div>
+      <%= link_to '会員登録', new_user_path, class: "pull-center btn btn-o-white btn-lg" %>
+    </section>
+  </div>
+  <!-- header -->
+  <!-- About us -->
+  <div class="content-block" id="blog">
+    <div class="container blog-sec">
+      <header class="block-heading cleafix">
+        <%#= link_to '全ての記事を見る', new_user_path, class: "pull-center btn btn-o-white btn-lg" %>
+        <!--<a href="#" class="btn btn-o btn-lg pull-right">全ての記事を見る</a>-->
+        <div class="title-page">
+          <p class="main-header">サンプル</p>
+          <p class="sub-header">最新のデートスポット</p>
+        </div>
+      </header>
+      <section class="block-body">
+        <div class="row">
+          <% @plans.each do |plan| %>
+          <div class="col-sm-4 blog-post">
+            <img>
+              <%= image_tag(plan.image) %>
+            </img>
+            <h2>
+              <%= link_to plan.title, plan_path(plan.id) %>
+            </h2>
+            <div class="date">
+              <%= plan.created_at.strftime('%Y/%m/%d') %>
+            </div>
+          </div>
+          <% end %>
+        </div>
+      </section>
+    </div>
+  </div>
+  <!-- #blog -->
+  <div class="content-block parallax" id="parallax">
+    <div class="container">
+      <h3 class="call-action pull-left">会員登録すると全ての記事を閲覧できます。</h3>
+      <%= link_to '会員登録', new_user_path, class: "pull-right btn btn-o-white btn-lg" %>
+    </div>
+  </div>
+  <!-- #parallax -->
 </div>

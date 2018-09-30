@@ -1,8 +1,28 @@
 <div class="content_wrapper">
-    <%= form_with(model: @review, local: true, url: reviews_path ) do |form| %>
-      <%= form.hidden_field :plan_id, value: params[:plan_id] %>
-      <p><%= form.label :review %></p>
-      <p><%= form.text_field :comment %></p>
-      <p><%= form.submit %></p>
-    <% end %>
+  <%= form_with(model: @review, local: true, url: reviews_path ) do |form| %>
+  <% if @review.errors.any? %>
+  <div id="error_explanation">
+    <h2>
+      <%= @review.errors.count %>件のエラーがあります。
+    </h2>
+    <ul>
+      <% @review.errors.full_messages.each do |msg| %>
+      <li>
+        <%= msg %>
+      </li>
+      <% end %>
+    </ul>
+  </div>
+  <% end %>
+  <%= form.hidden_field :plan_id, value: params[:plan_id] %>
+  <p>
+    <%= form.label :review %>
+  </p>
+  <p>
+    <%= form.text_field :comment %>
+  </p>
+  <p>
+    <%= form.submit %>
+  </p>
+  <% end %>
 </div>

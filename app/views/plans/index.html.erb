@@ -1,32 +1,39 @@
 <div class="content_wrapper">
   <% if flash[:notice] %>
-    <p><%= flash[:notice] %></p>
+  <p>
+    <%= flash[:notice] %>
+  </p>
   <% end %>
   <h1>スポット一覧</h1>
   <%= link_to '新規に投稿する', new_plan_path, class: "pull-center btn btn-o btn-lg" %>
-  
   <div class="serch_field">
     <%= search_form_for @search do |f| %>
-      <%#= f.label :title_or_content_cont %>
-      <span class="glyphicon glyphicon-search"></span>
-      <%= f.search_field :title_or_content_cont %>
-      <div class="actions"><%= f.submit "検索" %></div>
+    <%#= f.label :title_or_content_cont %>
+    <span class="glyphicon glyphicon-search"></span>
+    <%= f.search_field :title_or_content_cont %>
+    <div class="actions">
+      <%= f.submit "検索" %>
+    </div>
     <% end %>
   </div>
   <div class="all_plan">
     <% @plans.each do |plan| %>
-      <div class="col-xs-12 col-md-6 plan-panel">
-        <%= image_tag(plan.image) %>
-        <h2><%= plan.title %></h2>
-        <div class="date"><%= plan.created_at.strftime('%Y/%m/%d') %></div>
-        <% unless @current_user.nil? %>
-          <%= link_to 'Show', plan, class: 'btn btn-default' %>
-          <% if @current_user.id == plan.user_id %>
-            <%= link_to 'Edit', edit_plan_path(plan), class: 'btn btn-info' %> |
-            <%= link_to 'Destroy', plan, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
-          <% end %>
-        <% end %>
+    <div class="col-xs-12 col-md-6 plan-panel">
+      <%= image_tag(plan.image) %>
+      <h2>
+        <%= plan.title %>
+      </h2>
+      <div class="date">
+        <%= plan.created_at.strftime('%Y/%m/%d') %>
       </div>
+      <% unless @current_user.nil? %>
+      <%= link_to 'Show', plan, class: 'btn btn-default' %>
+      <% if @current_user.id == plan.user_id %>
+      <%= link_to 'Edit', edit_plan_path(plan), class: 'btn btn-info' %>| 
+      <%= link_to 'Destroy', plan, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+      <% end %>
+      <% end %>
+    </div>
     <% end %>
   </div>
 </div>

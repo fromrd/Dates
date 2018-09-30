@@ -1,20 +1,29 @@
 <div class="content_wrapper">
-    <div class="user_page">
-        <%= image_tag @user.image %>
-        <h1><%= @user.name %>のページ</h1>
-    
-    </div>
-        <p>メールアドレス：<%= @user.email %></p>
-        <p>居住国：<%= @user.country %></p><br>
-    <div>
-        <h2>お気に入り一覧</h2>
-        <% @favorites_plans.each do |favorite_plan| %>
-        <p><%= link_to "#{favorite_plan.plan.title}", plan_path(id: favorite_plan.plan_id) %></p>
-        <% end %>
-        
-        <h2>あなたが口コミしたスポット一覧</h2>
-        <% @reviews_plans.each do |review_plan| %>
-        <p><%= link_to "#{review_plan.plan.title}", plan_path(id: review_plan.plan_id) %></p>
-        <% end %>
-    </div>
+  <div class="user_page">
+    <%= image_tag @user.image %>
+    <h1>
+      <%= @user.name %>のページ
+    </h1>
+  </div>
+  <p>メールアドレス：
+    <%= @user.email %>
+  </p>
+  <p>居住国：
+    <%= @user.country %>
+  </p>
+  <br>
+  <div>
+    <h2>お気に入り一覧</h2>
+    <% @favorites_plans.each do |favorite_plan| %>
+    <p>
+      <%= link_to "#{favorite_plan.plan.title}", plan_path(id: favorite_plan.plan_id) %>
+    </p>
+    <% end %>
+    <h2>あなたが口コミしたスポット一覧</h2>
+    <% @reviews_plans.each do |review_plan| %>
+    <p>
+      <%= link_to "#{review_plan.plan.title}", plan_path(id: review_plan.plan_id) %>
+    </p>
+    <% end %>
+  </div>
 </div>
