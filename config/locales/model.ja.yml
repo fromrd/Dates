@@ -1,0 +1,23 @@
+ja:
+  activerecord:
+    models:
+      plan: "プラン"
+      user: "ユーザー"
+      review: "レビュー"
+    attributes:
+      plan:
+        title: "タイトル"
+        content: "内容"
+        image: "画像"
+        sample_flag: "サンプル記事か会員向け記事か"
+      user:
+        country: "居住国"
+        name: "名前"
+        email: "メールアドレス"
+        image: "アイコン画像"
+        current_password: "現在のパスワード"
+        password: "パスワード"
+        password_confirmation: "確認用パスワード"
+        remember_me: "ログインを記憶"
+      review:
+        comment: "口コミ"
